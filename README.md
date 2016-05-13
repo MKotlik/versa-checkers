@@ -24,3 +24,10 @@ A local game can be started by a user through their client, and is facilitated b
 * Minimax (and/or related AI algorithms/tools)
 * Processing
 * Material design (for GUI)
+
+###Project Outline
+1. Learn about branching
+2. Learn inter-thread communication and Checkers AI (minimax)
+3. Design basic client/server protocol
+4. Basic game server (multi-game, CLI, exception-safe)
+5. Client backend and GUI frontend
