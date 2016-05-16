@@ -11,8 +11,8 @@ import java.io.*;
 public class VersaServer {
     public static void main(String[]args) {
         boolean listening = true;
-        //default port number is 16 (TCP-unassigned)
-        int portNumber = 16;
+        //default port number is 1216 (TCP-registered but by some unknown entity)
+        int portNumber = 1216;
         int clientCount = 1;
         try (ServerSocket mainSocket = new ServerSocket(portNumber)) {
             System.out.println("Socket started on port " + portNumber);

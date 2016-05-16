@@ -10,7 +10,7 @@ import java.io.*;
 public class VersaClient {
     public static void main(String[] args) {
         String hostName = "localhost";
-        int portNum = 16;
+        int portNum = 1216;
 
         try (
                 Socket mainSocket = new Socket(hostName, portNum);
@@ -26,6 +26,8 @@ public class VersaClient {
                 if (inputLine.equalsIgnoreCase("Versa server disconnecting.")) {
                     break;
                 }
+                //print prompt
+                System.out.print("|> ");
                 userInput = userIn.readLine();
                 if (userInput != null) {
                     serverOut.write(userInput, 0, userInput.length()); //Writing to server
