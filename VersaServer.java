@@ -26,6 +26,9 @@ public class VersaServer {
     }
 
     //Instance variables
+    ThreadLinker consoleLink;
+    ThreadLinker socketLink;
+    HashMap<String, ThreadLinker>;
 
     //Constructors
 
