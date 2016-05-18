@@ -41,7 +41,6 @@ public class SocketHandler implements Runnable{
             System.out.println("SOCKET_HANDLER: Stopped listening. Socket closing.");
         } catch (IOException e) {
             System.err.println("SOCKET_HANDLER: IOException - Could not listen on port " + portNumber);
-            System.exit(-1);
         }
     }
 }

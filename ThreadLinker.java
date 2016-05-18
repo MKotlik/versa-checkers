@@ -21,13 +21,18 @@ public class ThreadLinker {
     private int sizeB;
     private String threadIDA;
     private String threadIDB;
-    private int waitTimeout = 200; //timeout in millis
+    private int waitTimeout; //timeout in millis
     //Could also set custom wait times in constructor or method
 
     //Constructor
     public ThreadLinker(String threadIDA, String threadIDB) {
+        this(threadIDA, threadIDB, 200); //default wait timeout = 200ms
+    }
+
+    public ThreadLinker(String threadIDA, String threadIDB, int waitTimeout) {
         this.threadIDA = threadIDA;
         this.threadIDB = threadIDB;
+        this.waitTimeout = waitTimeout;
         queueA = new LinkedBlockingQueue<String>();
         queueB = new LinkedBlockingQueue<String>();
         sizeA = 0;
