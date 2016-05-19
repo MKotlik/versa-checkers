@@ -8,6 +8,7 @@ import java.net.*;
 import java.io.*;
 import java.util.*;
 
+//TODO - fix class (esp. constructor!) to fit new use and constructor calls
 public class ClientHandler implements Runnable{
     private Socket clientSocket;
     private int clientNum;
