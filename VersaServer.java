@@ -12,8 +12,12 @@ import java.awt.Dimension;
 import java.awt.BorderLayout;
 
 import javax.swing.*;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
 
 public class VersaServer extends JPanel{
+    private PlayerList playerList;
+
     /*
      * Spawns new hostIO thread
      * Spawns new SocketHandler thread
@@ -24,8 +28,13 @@ public class VersaServer extends JPanel{
      * Responds to SocketHandler messages
      */
     public VersaServer(){
+        playerList = new PlayerList();
+
         setPreferredSize(new Dimension(600,400));
         setLayout(new BorderLayout());
+
+        add(getPlayerList(),"North");
+        add(getLog(), "Center");
     }
 
     //Main
@@ -44,6 +53,26 @@ public class VersaServer extends JPanel{
         frame.setResizable(false);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+    }
+
+    public JScrollPane getPlayerList(){
+        JScrollPane scroll = new JScrollPane(playerList);
+        scroll.setBorder(new TitledBorder(new EtchedBorder(),"Player List"));
+        return scroll;
+    }
+
+    public JPanel getLog(){
+        JPanel panel = new JPanel(new BorderLayout());
+        JTextArea text = new JTextArea();
+        JScrollPane pane = new JScrollPane(text);
+        text.setEditable(false);
+
+        JTextField input = new JTextField();
+
+        panel.add(pane, "Center");
+        panel.add(input, "South");
+        panel.setBorder(new TitledBorder(new EtchedBorder(), "Log Output"));
+        return panel;
     }
 
     //Instance variables
