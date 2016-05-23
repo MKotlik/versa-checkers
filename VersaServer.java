@@ -8,8 +8,12 @@ import java.net.*;
 import java.io.*;
 import java.util.*;
 
+import java.awt.Dimension;
+import java.awt.BorderLayout;
 
-public class VersaServer {
+import javax.swing.*;
+
+public class VersaServer extends JPanel{
     /*
      * Spawns new hostIO thread
      * Spawns new SocketHandler thread
@@ -19,10 +23,27 @@ public class VersaServer {
      * Checks for new SocketHandler messages
      * Responds to SocketHandler messages
      */
+    public VersaServer(){
+        setPreferredSize(new Dimension(600,400));
+        setLayout(new BorderLayout());
+    }
 
     //Main
     public static void main(String[] args) {
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        }catch(Exception e){
+            e.printStackTrace();
+        }
 
+        VersaServer as = new VersaServer();
+        JFrame frame = new JFrame("Versa-Checkers Server");
+        frame.add(as);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setResizable(false);
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
     }
 
     //Instance variables
