@@ -15,42 +15,14 @@ import java.net.Socket;
  */
 
 public class VersaServerThread extends Thread{
-    private VersaServer server;
-    private Socket socket;
+    private VersaServer server = null;
+    private Socket socket = null;
     private PrintWriter out = null;
     private BufferedReader in = null;
     private boolean listening = true;
     private boolean ready = false;
 
     public String name = "";
-
-    public VersaServerThread(VersaServer server, Socket socket){
-        super("VersaServerThread");
-        this.server = server;
-        this.socket = socket;
-
-        try{
-            //To be completed this.in = in =
-            this.out = new PrintWriter(socket.getOutputStream(),true);
-            this.in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-        }catch(IOException e){
-            System.err.println("Unable to initialize I/O for the thread");
-        }
-    }
-
-    public void sendMessage(String sender, String incMessage){
-        out.println("###sentfrom=" + sender + "###message" + incMessage);
-    }
-
-    //Kills the thread
-    public void kill(){
-        listening = false;
-    }
-
-    //accessor method
-    public Socket getSocket(){
-        return this.socket;
-    }
 
     private static class Message {
         public String recip;
@@ -65,6 +37,30 @@ public class VersaServerThread extends Thread{
         public String toString() {
             return "Recipiant: " + recip + " Message: " + content;
         }
+    }
+
+    public VersaServerThread(VersaServer server, Socket socket) {
+        super("MyCheckersServerThread");
+        this.socket = socket;
+        this.server = server;
+        try {
+            this.out = new PrintWriter(socket.getOutputStream(), true);
+            this.in = in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        } catch (IOException e) {
+            System.err.println("Cannot initial I/O for this thread.");
+        }
+    }
+
+    public Socket getSocket() {
+        return this.socket;
+    }
+
+    public void sendMessage(String sender, String incMessage) {
+        out.println("###sentfrom=" + sender + "###message=" + incMessage);
+    }
+
+    public void kill() {
+        listening = false;
     }
 
     @Override
@@ -122,8 +118,6 @@ public class VersaServerThread extends Thread{
                 server.removeClient(this);
             }
 
-        } catch (IOException e) {
-
-        }
+        } catch (IOException e) {}
     }
 }
