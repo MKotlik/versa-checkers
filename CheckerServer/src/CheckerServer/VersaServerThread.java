@@ -52,18 +52,18 @@ public class VersaServerThread extends Thread{
         return this.socket;
     }
 
-    public static class Message{
+    private static class Message {
         public String recip;
         public String content;
 
-        public Message(String message){
-            recip = message.substring(message.indexOf("###sendto")+10,message.indexOf("###message="));
-            content = message.substring(message.indexOf("###message")+11,message.length());
+        public Message(String plainText) {
+            recip = plainText.substring(plainText.indexOf("###sendto")+10, plainText.indexOf("###message="));
+            content = plainText.substring(plainText.indexOf("###message")+11, plainText.length());
         }
 
         @Override
-        public String toString(){
-            return "Recipient: " + recip + " Message: " + content;
+        public String toString() {
+            return "Recipiant: " + recip + " Message: " + content;
         }
     }
 
