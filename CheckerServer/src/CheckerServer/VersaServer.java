@@ -11,14 +11,14 @@ import java.net.ServerSocket;
 import java.util.HashMap;
 
 public class VersaServer extends Thread{
-    private ServerSocket serversocket;
-    private ClientFinder clientListener;
-    private VersaServerGUI gui;
-    private HashMap clients;
-    private HashMap games;
-    private int num_connected;
+    private ServerSocket serversocket = null;
+    private ClientFinder clientListener = null;
+    private VersaServerGUI gui = null;
+    private HashMap clients = null;
+    private HashMap games = null;
+    private int num_connected = 0;
     private int max_connections;
-    private boolean listening;
+    private boolean listening = false;
     /*
      * Spawns new hostIO thread
      * Spawns new SocketHandler thread
@@ -30,6 +30,16 @@ public class VersaServer extends Thread{
      */
 
     public VersaServer(VersaServerGUI GUI){
+        //We can add parameters to alter max_connection in the future
+        this.gui = GUI;
+        max_connections = 10;
+    }
+
+    public int addClient(){
+
+    }
+
+    public void removeClient(VersaServerThread){
 
     }
 }
