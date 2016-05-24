@@ -85,4 +85,8 @@ public class VersaServer extends JPanel{
     //Accessors
 
     //Mutators
+
+    private class Game implements Runnable{
+        private ClientClass []
+    }
 }
