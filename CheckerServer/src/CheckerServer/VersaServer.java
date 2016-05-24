@@ -29,7 +29,7 @@ public class VersaServer extends Thread{
      * Responds to SocketHandler messages
      */
 
-    public VersaServer(){
+    public VersaServer(VersaServerGUI GUI){
 
     }
 }
