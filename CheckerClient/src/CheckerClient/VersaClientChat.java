@@ -531,10 +531,10 @@ public class VersaClientChat extends JFrame{
 
         public CheckersPanel() {
             try {
-                red_piece = ImageIO.read(this.getClass().getResource("assets/images/red_piece.png"));
-                blue_piece = ImageIO.read(this.getClass().getResource("assets/images/blue_piece.png"));
-                red_piece_king = ImageIO.read(this.getClass().getResource("assets/images/red_piece_king.png"));
-                blue_piece_king = ImageIO.read(this.getClass().getResource("assets/images/blue_piece_king.png"));
+                red_piece = ImageIO.read(this.getClass().getResource("images/red_piece.png"));
+                blue_piece = ImageIO.read(this.getClass().getResource("images/blue_piece.png"));
+                red_piece_king = ImageIO.read(this.getClass().getResource("images/red_piece_king.png"));
+                blue_piece_king = ImageIO.read(this.getClass().getResource("images/blue_piece_king.png"));
             } catch (IOException e) {
                 System.out.println("could not open file");
             }
