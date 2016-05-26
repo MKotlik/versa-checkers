@@ -4,8 +4,9 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.io.BufferedReader;
 import java.io.IOException;
-
 import java.net.Socket;
+
+import java.util.HashMap;
 
 
 /* Copyright (c) 2016, Mikhail Kotlik and Sam Xu
@@ -22,6 +23,8 @@ public class VersaServerThread extends Thread{
     private boolean listening = true;
     private boolean ready = false;
 
+    private HashMap<String, VersaCheckers> games;
+
     public String name = "";
 
     private static class Message {
@@ -35,17 +38,18 @@ public class VersaServerThread extends Thread{
 
         @Override
         public String toString() {
-            return "Recipiant: " + recip + " Message: " + content;
+            return "Recipient: " + recip + " Message: " + content;
         }
     }
 
-    public VersaServerThread(VersaServer server, Socket socket) {
-        super("MyCheckersServerThread");
+    public VersaServerThread(VersaServer server, Socket socket, HashMap<String, VersaCheckers> games) {
+        super("MyCheckersServerThread"); //TODO - give unique IDs to VSThreads
         this.socket = socket;
         this.server = server;
+        this.games = games;
         try {
             this.out = new PrintWriter(socket.getOutputStream(), true);
-            this.in = in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            this.in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         } catch (IOException e) {
             System.err.println("Cannot initial I/O for this thread.");
         }
@@ -63,16 +67,97 @@ public class VersaServerThread extends Thread{
         listening = false;
     }
 
+    public void newGame(String client1, String client2){
+        String save = "";
+        if(games.containsKey(client1+";" + client2)){
+            save = client1 + ";" + client2;
+        }else if(games.containsKey(client2 + ":" + client1)){
+            save = client2 + ":" + client1;
+        }
+        if(!save.equals("")){
+            VersaCheckers game = (VersaCheckers) games.get(save);
+            String board;
+            if(save.substring(0, save.indexOf(":")).equals(client1)){
+                board = game.getBoard();
+            }else{
+                board = game.getRotated(game.getBoard());
+            }
+            sendMessage(client1, client2, "###game_already_exists###board="+board+"###turn="+game.getTurn()+"###");
+        }else {
+            VersaCheckers game = new VersaCheckers(client1, client2);
+            games.put(client1+":"+client2, game);
+            sendMessage(client1, client2, "###new_game_started###board="+game.getBoard()+"###");
+        }
+    }
+
+    public void endGame(String loser, String winner){
+        String save = "";
+        if(games.containsKey(loser+":"+winner)){
+            save = loser+":"+winner;
+        }else if(games.containsKey(winner+":"+loser)){
+            save = winner+":"+loser;
+        }else{
+            System.err.println("unable to disconnect, does not exist");
+        }
+        sendMessage(winner, loser, "###you_won###");
+        games.remove(save);
+    }
+
+    public void restartGame(String client1, String client2){
+        VersaCheckers game = new VersaCheckers(client1, client2);
+        games.put(client1+":"+client2, game);
+        sendMessage(client1, client2,
+                "###new_game_restarted###board="+game.getBoard()+"###turn="+game.getTurn()+"###");
+        sendMessage(client2, client1,
+                "###new_game_restarted###board="+game.getRotated(game.getBoard())+"###turn="+game.getTurn()+"###");
+    }
+
+    public void gameMove(String from, String to, String message) {
+        String gameString = "";
+        if (games.containsKey(from+":"+to)) {
+            gameString = from+":"+to;
+        } else if (games.containsKey(to+":"+from)) {
+            gameString = to+":"+from;
+        } else {
+            System.err.println("Error: gameMove registered for non-existant game");
+        }
+
+        VersaCheckers game = (VersaCheckers) games.get(gameString);
+
+        int[][] realBoard = new int[8][8];
+        String res = message.substring(message.indexOf("###new_board=")+14, message.length()-4);
+        String[] rows = res.split("\\],\\[");
+        rows[0] = rows[0].substring(1, rows[0].length());
+        rows[7] = rows[7].substring(0, rows[7].length()-1);
+
+        for (int y = 0; y < 8; y++) {
+            String chars[] = rows[y].split(",");
+            for (int x = 0; x < 8; x++) {
+                realBoard[y][x] = Integer.parseInt(chars[x]);
+            }
+        }
+
+        game.setBoard(realBoard);
+        game.changeTurns();
+        String newBoard;
+        if (gameString.substring(0, gameString.indexOf(":")).equals(to)) {
+            newBoard = game.getBoard();
+        } else {
+            newBoard = game.getRotated(game.getBoard());
+        }
+        sendMessage(to, from, "###checkers_move###new_board="+newBoard+"###");
+    }
+
     @Override
     public void run() {
         try {
             String inputLine;
-
+            //TODO - allow server to send server-wide commands
             while ((inputLine = in.readLine()) != null && listening) {
                 Message message = new Message(inputLine);
                 if (message.recip.equals("server")) {
                     if (message.content.equals("###disconnecting###")) {
-                        server.sendMessage("all", name, "###potential_chat_disconnected###");
+                        server.sendMessage("all", name, "###potential_chat_disconnected###"); //confusing name
                         break;
                     }
                     else if (message.content.contains("###name=")) {
@@ -103,7 +188,6 @@ public class VersaServerThread extends Thread{
                         else if (message.content.equals("###new_game_restarted###")) {
                             server.restartGame(name, message.recip);
                         }
-
                         else {
                             server.sendMessage(message.recip, name, message.content);
                         }
