@@ -87,13 +87,17 @@ public class VersaServerThread extends Thread{
             }else{
                 board = game.getRotated(game.getBoard());
             }
+            opponent = clients.get(client2); //get the VersaServerThread of the opponent
             sendMessage(client2, "###game_already_exists###board="+board+"###turn="+game.getTurn()+"###");
+            //opponent.sendMessage(client1, "###game_already_exists###board="+board+"###turn="+game.getTurn()+"###");
         }else {
             VersaCheckers game = new VersaCheckers(client1, client2);
             games.put(client1+":"+client2, game);
             sendMessage(client2, "###new_game_started###board="+game.getBoard()+"###");
+            opponent = clients.get(client2); //get the VersaServerThread of the opponent
+            opponent.sendMessage(client1, "###new_game_started###board="+game.getBoard()+"###");
         }
-        opponent = clients.get(client2); //get the VersaServerThread of the opponent
+
     }
 
     public void endGame(String loser, String winner){
