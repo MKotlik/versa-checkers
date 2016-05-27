@@ -273,7 +273,7 @@ public class VersaClientGUI extends JFrame {
 
     public void updateGame(String sender, String board, String turn, String message) {
         if (!chats.containsKey(sender)) {
-            newChatWindow(sender, true);
+            newChatWindow(sender, true); //I'm assuming that when no chat exists with opponent, window is opened to fix it
         } else {
             int[][] realBoard = new int[8][8];
             String res = board.substring(1, board.length()-1);
@@ -304,6 +304,7 @@ public class VersaClientGUI extends JFrame {
         }
     }
 
+    //TODO - look at this, notifyWin starts a chat window, this is sus
     public void notifyWin(String partner) {
         if (!chats.containsKey(partner)) {
             newChatWindow(partner, true);

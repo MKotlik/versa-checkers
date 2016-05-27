@@ -23,7 +23,10 @@ public class VersaServerThread extends Thread{
     private boolean listening = true;
     private boolean ready = false;
 
+    private HashMap<String, VersaServerThread> clients;
     private HashMap<String, VersaCheckers> games;
+
+    private VersaServerThread opponent;
 
     public String name = "";
 
@@ -42,10 +45,11 @@ public class VersaServerThread extends Thread{
         }
     }
 
-    public VersaServerThread(VersaServer server, Socket socket, HashMap<String, VersaCheckers> games) {
+    public VersaServerThread(VersaServer server, Socket socket, HashMap<String, VersaServerThread> clients, HashMap<String, VersaCheckers> games) {
         super("MyCheckersServerThread"); //TODO - give unique IDs to VSThreads
         this.socket = socket;
         this.server = server;
+        this.clients = clients;
         this.games = games;
         try {
             this.out = new PrintWriter(socket.getOutputStream(), true);
@@ -67,6 +71,7 @@ public class VersaServerThread extends Thread{
         listening = false;
     }
 
+    //Client1 is always this thread, name
     public void newGame(String client1, String client2){
         String save = "";
         if(games.containsKey(client1+";" + client2)){
@@ -82,12 +87,13 @@ public class VersaServerThread extends Thread{
             }else{
                 board = game.getRotated(game.getBoard());
             }
-            sendMessage(client1, client2, "###game_already_exists###board="+board+"###turn="+game.getTurn()+"###");
+            sendMessage(client2, "###game_already_exists###board="+board+"###turn="+game.getTurn()+"###");
         }else {
             VersaCheckers game = new VersaCheckers(client1, client2);
             games.put(client1+":"+client2, game);
-            sendMessage(client1, client2, "###new_game_started###board="+game.getBoard()+"###");
+            sendMessage(client2, "###new_game_started###board="+game.getBoard()+"###");
         }
+        opponent = clients.get(client2); //get the VersaServerThread of the opponent
     }
 
     public void endGame(String loser, String winner){
@@ -99,16 +105,20 @@ public class VersaServerThread extends Thread{
         }else{
             System.err.println("unable to disconnect, does not exist");
         }
-        sendMessage(winner, loser, "###you_won###");
+        if (winner.equals(name)) { //if this clientThread won
+            sendMessage(loser, "###you_won###");
+        } else { //send message to opponent
+            opponent.sendMessage(loser, "###you_won###");
+        }
         games.remove(save);
     }
 
     public void restartGame(String client1, String client2){
         VersaCheckers game = new VersaCheckers(client1, client2);
         games.put(client1+":"+client2, game);
-        sendMessage(client1, client2,
+        sendMessage(client2,
                 "###new_game_restarted###board="+game.getBoard()+"###turn="+game.getTurn()+"###");
-        sendMessage(client2, client1,
+        opponent.sendMessage(client1,
                 "###new_game_restarted###board="+game.getRotated(game.getBoard())+"###turn="+game.getTurn()+"###");
     }
 
@@ -145,7 +155,12 @@ public class VersaServerThread extends Thread{
         } else {
             newBoard = game.getRotated(game.getBoard());
         }
-        sendMessage(to, from, "###checkers_move###new_board="+newBoard+"###");
+        if (from.equals(name)) { //if message from this thread to opponent
+            opponent.sendMessage(from, "###checkers_move###new_board="+newBoard+"###");
+        } else { //message from opponent to this client
+            sendMessage(from, "###checkers_move###new_board="+newBoard+"###");
+        }
+
     }
 
     @Override
@@ -159,8 +174,7 @@ public class VersaServerThread extends Thread{
                     if (message.content.equals("###disconnecting###")) {
                         server.sendMessage("all", name, "###potential_chat_disconnected###"); //confusing name
                         break;
-                    }
-                    else if (message.content.contains("###name=")) {
+                    } else if (message.content.contains("###name=")) {
                         name = message.content.substring(message.content.indexOf("=")+1, message.content.length()-3);
 
                         int res = server.addClient(this);
@@ -174,19 +188,20 @@ public class VersaServerThread extends Thread{
                             break;
                         }
                     }
-                } else {
+                } else { //Assumes that only 3 possible commands, could be problematic when scaling up
                     if (ready) {
+                        //TODO - change handling so that other client is asked for game confirmation first
                         if (message.content.equals("###new_game_window###")) {
-                            server.newGame(name, message.recip);
+                            newGame(name, message.recip);
                         }
                         else if (message.content.contains("###new_move")) {
-                            server.gameMove(name, message.recip, message.content);
+                            gameMove(name, message.recip, message.content);
                         }
                         else if (message.content.equals("###game_over###you_win###")) {
-                            server.endGame(name, message.recip);
+                            endGame(name, message.recip);
                         }
                         else if (message.content.equals("###new_game_restarted###")) {
-                            server.restartGame(name, message.recip);
+                            restartGame(name, message.recip);
                         }
                         else {
                             server.sendMessage(message.recip, name, message.content);
