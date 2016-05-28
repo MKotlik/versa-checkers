@@ -13,8 +13,6 @@ public class VersaCheckers {
     private String turn = "";
 
     public VersaCheckers(String client1, String client2){
-        player1 = client1;
-        player2 = client2;
         int [][] temp = {
                 {3, 0, 3, 0, 3, 0, 3, 0},
                 {0, 3, 0, 3, 0, 3, 0, 3},
@@ -27,6 +25,8 @@ public class VersaCheckers {
         };
         board = temp;
         turn = player1;
+        player1 = client1;
+        player2 = client2;
     }
 
     //Accessor methods
@@ -51,16 +51,16 @@ public class VersaCheckers {
 
     public String getRotated(String current){
         String save = current;
-        save = save.replace("1","-1");
-        save = save.replace("3","-1");
-        save = save.replace("-1","3");
-        save = save.replace("2","-2");
-        save = save.replace("4","2");
-        save = save.replace("-2","4");
+        save = save.replace("1", "-1");
+        save = save.replace("3", "1");
+        save = save.replace("-1", "3");
+        save = save.replace("2", "-2");
+        save = save.replace("4", "2");
+        save = save.replace("-2", "4");
         save = new StringBuffer(save).reverse().toString();
-        save = save.replace("[","*");
-        save = save.replace("]","[");
-        save = save.replace("*","]");
+        save = save.replace("[", "*");
+        save = save.replace("]", "[");
+        save = save.replace("*", "]");
         return save;
     }
 
