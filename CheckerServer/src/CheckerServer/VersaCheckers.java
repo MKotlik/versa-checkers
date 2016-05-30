@@ -24,9 +24,9 @@ public class VersaCheckers {
                 {0, 1, 0, 1, 0, 1, 0, 1}
         };
         board = temp;
-        turn = player1;
         player1 = client1;
         player2 = client2;
+        turn = player1;
     }
 
     //Accessor methods
