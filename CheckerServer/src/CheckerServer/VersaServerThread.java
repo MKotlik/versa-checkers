@@ -72,32 +72,30 @@ public class VersaServerThread extends Thread{
     }
 
     //Client1 is always this thread, name
-    public void newGame(String client1, String client2){
-        String save = "";
-        if(games.containsKey(client1+";" + client2)){
-            save = client1 + ";" + client2;
-        }else if(games.containsKey(client2 + ":" + client1)){
-            save = client2 + ":" + client1;
-        }
-        if(!save.equals("")){
-            VersaCheckers game = (VersaCheckers) games.get(save);
-            String board;
-            if(save.substring(0, save.indexOf(":")).equals(client1)){
-                board = game.getBoard();
-            }else{
-                board = game.getRotated(game.getBoard());
-            }
-            opponent = clients.get(client2); //get the VersaServerThread of the opponent
-            sendMessage(client2, "###game_already_exists###board="+board+"###turn="+game.getTurn()+"###");
-            //opponent.sendMessage(client1, "###game_already_exists###board="+board+"###turn="+game.getTurn()+"###");
-        }else {
-            VersaCheckers game = new VersaCheckers(client1, client2);
-            games.put(client1+":"+client2, game);
-            sendMessage(client2, "###new_game_started###board="+game.getBoard()+"###");
-            opponent = clients.get(client2); //get the VersaServerThread of the opponent
-            opponent.sendMessage(client1, "###new_game_started###board="+game.getBoard()+"###");
+    public void newGame(String client1, String client2) {
+        String gameString = "";
+        opponent = clients.get(client2); //get the VersaServerThread of the opponent
+        if (games.containsKey(client1+":"+client2)) {
+            gameString = client1+":"+client2;
+        } else if (games.containsKey(client2+":"+client1)) {
+            gameString = client2+":"+client1;
         }
 
+        if (!gameString.equals("")) {
+            VersaCheckers game = (VersaCheckers) games.get(gameString);
+            String board;
+            if (gameString.substring(0, gameString.indexOf(":")).equals(client1)) {
+                board = game.getBoard();
+            } else {
+                board = game.getRotated(game.getBoard());
+            }
+            server.sendMessage(client1, client2, "###game_already_exists###board="+board+"###turn="+game.getTurn()+"###");
+        } else {
+            VersaCheckers game = new VersaCheckers(client1, client2);
+            games.put(client1+":"+client2, game);
+            server.sendMessage(client1, client2, "###new_game_started###board="+game.getBoard()+"###");
+            opponent.sendMessage(client1, "###new_game_started###board="+game.getBoard()+"###");
+        }
     }
 
     public void endGame(String loser, String winner){
