@@ -18,7 +18,8 @@ public class VersaClientGUI extends JFrame {
     DefaultListModel userListModel = null;
 
     private void chatButtonBotActionPerformed(ActionEvent e) {
-        // TODO add your code here
+        VersaFrame f = new VersaFrame();
+        f.setVisible(true);
     }
 
     public VersaClientGUI() {
@@ -167,7 +168,6 @@ public class VersaClientGUI extends JFrame {
         chatButtonBot.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                chatButtonActionPerformed(e);
                 chatButtonBotActionPerformed(e);
             }
         });

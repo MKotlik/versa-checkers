@@ -10,6 +10,7 @@ import java.util.HashMap;
 
 import java.net.URL;
 
+import javax.sound.sampled.*;
 import javax.swing.*;
 
 /* Copyright (c) 2016, Mikhail Kotlik and Sam Xu
@@ -17,14 +18,14 @@ import javax.swing.*;
  * APCS Spring Final Project
  * VersaClientChat
  */
+//TODO VICTORY CONDITION
 
 public class VersaFrame extends JFrame implements Runnable{
     private HashMap prevBoard = null;
     private int num_undos = 0;
-    private boolean myTurn = false;
     private URL soundFile = null;
-    private VersaCheckers gamePanel;
-    private VersaGame currentGame;
+    private VersaCheckers gamePanel;  //Displays the game panel and game information
+    private VersaGame currentGame;  //Overall game info
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -39,17 +40,18 @@ public class VersaFrame extends JFrame implements Runnable{
 
     public VersaFrame(){
         initComponents();
-        setTitle("Game with  bot");
+        setTitle("Game with bot");
 
         soundFile = this.getClass().getResource("audio/floop.wav");
-
-        gamePanel = new VersaCheckers();
-        currentGame = new VersaGame(gamePanel, this);
+        writeBoard("new game");
     }
 
     private void initComponents(){
-        javax.swing.JPanel gamePanel = new CheckersPanel();
+        //Initializes the game files
+        javax.swing.JPanel gamePanel = new VersaCheckers();
         this.gamePanel = (VersaCheckers) gamePanel;
+        currentGame = new VersaGame((VersaCheckers)gamePanel, this);
+        currentGame.start();
         confirmMoveButton = new javax.swing.JButton();
         undoMoveButton = new javax.swing.JButton();
         turnLabel = new javax.swing.JLabel();
@@ -58,7 +60,6 @@ public class VersaFrame extends JFrame implements Runnable{
         centerSeparator = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Chat with ...");
         setResizable(false);
 
         gamePanel.setBackground(java.awt.Color.white);
@@ -196,19 +197,19 @@ public class VersaFrame extends JFrame implements Runnable{
     }//GEN-LAST:event_undoMoveButtonActionPerformed
 
     private void confirmMoveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmMoveButtonActionPerformed
-        myTurn = false;
-        prevBoard = null;
         setTurn(false);
+        prevBoard = null;
         confirmMoveButton.setEnabled(false);
         undoMoveButton.setEnabled(false);
         gamePanel.setSelected(-1, -1);
+        gamePanel.rotateBoard();
     }//GEN-LAST:event_confirmMoveButtonActionPerformed
 
     private void gamePanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gamePanelMousePressed
         int x_pos = (int)Math.floor(evt.getX()/50.0);
         int y_pos = (int)Math.floor(evt.getY()/50.0);
 
-        if (myTurn) {
+        if (gamePanel.getTurn()) {
             if (gamePanel.getSelected() == null &&
                     (gamePanel.getBoard()[y_pos][x_pos] == 1 || gamePanel.getBoard()[y_pos][x_pos] == 2) &&
                     num_undos == 0) {
@@ -245,7 +246,7 @@ public class VersaFrame extends JFrame implements Runnable{
         }
     }//GEN-LAST:event_gamePanelMousePressed
 
-    private int checkMove(int[] from, int[] to) {
+    public int checkMove(int[] from, int[] to) {
         if (gamePanel.getBoard()[to[1]][to[0]] == 0) {
             // If the new position is above the old position (only for non-kings)
             if (gamePanel.getBoard()[from[1]][from[0]] == 1 && to[1] > from[1]) {
@@ -273,7 +274,7 @@ public class VersaFrame extends JFrame implements Runnable{
     private void giveupButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_giveupButtonActionPerformed
         turnLabel.setText("You lost!");
 
-        myTurn = false;
+        setTurn(false);
         prevBoard = null;
         confirmMoveButton.setEnabled(false);
         undoMoveButton.setEnabled(false);
@@ -288,13 +289,90 @@ public class VersaFrame extends JFrame implements Runnable{
         giveupButton.setEnabled(true);
     }//GEN-LAST:event_startNewGameButtonActionPerformed
 
+
+    public void writeBoard(String message) {
+        setTurn(true);
+        prevBoard = new HashMap();
+        num_undos = 0;
+
+        if (message.contains("New move from ")) {
+            soundNotification();
+        }
+
+        if (checkEnd()) {
+            turnLabel.setText("You lost!");
+            gamePanel.gameover = true;
+
+            setTurn(false);
+            prevBoard = null;
+            confirmMoveButton.setEnabled(false);
+            undoMoveButton.setEnabled(false);
+            gamePanel.setSelected(-1, -1);
+            startNewGameButton.setEnabled(true);
+
+            JOptionPane.showMessageDialog(null, "You lost! Better luck next time.", "You Lost", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+
+    public void soundNotification() {
+        try {
+            AudioInputStream soundIn = AudioSystem.getAudioInputStream(soundFile);
+            AudioFormat format = soundIn.getFormat();
+            DataLine.Info info = new DataLine.Info(Clip.class, format);
+
+            Clip clip = (Clip)AudioSystem.getLine(info);
+            clip.open(soundIn);
+            clip.start();
+            while(clip.isRunning())
+            {
+                Thread.yield();
+            }
+        } catch(Exception e) {
+            System.err.println(e.getMessage());
+        }
+    }
+
+    private boolean checkEnd() {
+        int[][] b = gamePanel.getBoard();
+        for (int y = 0; y < 8; y++) {
+            for (int x = 0; x < 8; x++) {
+                if (b[y][x] == 1 || b[y][x] == 2) {
+                    for (int j = 0; j < 8; j++) {
+                        for (int k = 0; k < 8; k++) {
+                            int[] from = {x, y};
+                            int[] to = {k, j};
+                            if (checkMove(from, to) != 0) {
+                                return false;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        return true;
+    }
+
     public void setTurn(boolean turn) {
-        myTurn = turn;
+        gamePanel.setTurn(turn);
         if (turn) {
             turnLabel.setText("Your turn:");
         } else {
             turnLabel.setText("Bot's turn:");
         }
+    }
+
+    public void notifyWin() {
+        turnLabel.setText("You won!");
+        setTurn(false);
+        prevBoard = null;
+        confirmMoveButton.setEnabled(false);
+        undoMoveButton.setEnabled(false);
+        gamePanel.setSelected(-1, -1);
+        startNewGameButton.setEnabled(true);
+        giveupButton.setEnabled(false);
+
+        JOptionPane.showMessageDialog(null, "You won! Congrats.", "You Won", JOptionPane.INFORMATION_MESSAGE);
     }
 
     public void run(){

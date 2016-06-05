@@ -19,13 +19,13 @@ public class VersaCheckers extends JPanel{
     public static final int BLUE = 3;
     public static final int BKing = 4;
 
-    public static final String PLAYER = "player";
-    public static final String BOTPLAYER = "bot";
+    public static final boolean PLAYER = true;
+    public static final boolean BOTPLAYER = false;
 
     private int[][] board;
     private String player1 = "";
     private String player2 = "";
-    private String turn = "";
+    private boolean turn = true;
     public boolean gameover = false;
 
     private int[] selected = null;
@@ -59,7 +59,7 @@ public class VersaCheckers extends JPanel{
         board = temp;
         player1 = "player";
         player2 = "bot";
-        turn = player1;
+        turn = true;
     }
 
     private String boardToString(int[][] b){
@@ -92,18 +92,29 @@ public class VersaCheckers extends JPanel{
         return save;
     }
 
-    public String getTurn(){
+    public void rotateBoard(){
+        String res = getRotated(boardToString(getBoard()));
+        int[][] realBoard = new int[8][8];
+        res = res.substring(1,res.length()-1);
+        String[] rows = res.split("\\],\\[");
+        rows[0] = rows[0].substring(1, rows[0].length());
+        rows[7] = rows[7].substring(0, rows[7].length()-1);
+
+        for (int y = 0; y < 8; y++) {
+            String chars[] = rows[y].split(",");
+            for (int x = 0; x < 8; x++) {
+                realBoard[y][x] = Integer.parseInt(chars[x]);
+            }
+        }
+        setBoard(realBoard);
+    }
+
+    public boolean getTurn(){
         return turn;
     }
 
-    public void changeTurns(){
-        if (turn.equals(player1)) {
-            turn = player2;
-        } else if (turn.equals(player2)) {
-            turn = player1;
-        } else {
-            System.err.println("Error: turn is messed up");
-        }
+    public void setTurn(boolean x){
+        turn = x;
     }
 
     public int getBlueScore(){
