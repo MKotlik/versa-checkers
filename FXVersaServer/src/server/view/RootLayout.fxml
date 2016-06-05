@@ -102,24 +102,7 @@
    <center>
       <TabPane prefHeight="400.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE" tabMinWidth="40.0" BorderPane.alignment="CENTER">
         <tabs>
-          <Tab text="Main">
-               <content>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <VBox prefHeight="426.0" prefWidth="400.0">
-                           <children>
-                              <HBox prefWidth="200.0">
-                                 <children>
-                                    <Button mnemonicParsing="false" prefWidth="200.0" text="Users" />
-                                    <Button mnemonicParsing="false" prefWidth="200.0" text="Games" />
-                                 </children>
-                              </HBox>
-                           </children>
-                        </VBox>
-                     </children>
-                  </HBox>
-               </content>
-          </Tab>
+          <Tab text="Main" />
           <Tab text="Settings">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
