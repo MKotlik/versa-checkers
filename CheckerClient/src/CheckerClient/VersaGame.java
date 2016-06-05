@@ -8,21 +8,27 @@ package CheckerClient;
 
 public class VersaGame extends Thread {
     VersaCheckers game = null;
-    boolean gameover = false;
+    VersaFrame gameBoard = null;
     boolean botmove = false;
 
-    public VersaGame(VersaCheckers game){
+    public VersaGame(VersaCheckers game, VersaFrame gameBoard){
         this.game = game;
+        this.gameBoard = gameBoard;
         botmove = game.getTurn() == "bot";
-        gameover =
     }
 
     public void run(){
-        while(!gameover){
-
+        while(!game.gameover){
             if(botmove){
+                int [] to = choosemove(game.getBoard());
+            }else{
 
             }
         }
+    }
+
+    public int [] choosemove(int[][] board){
+        int [] save = {5,2};
+        return save;
     }
 }

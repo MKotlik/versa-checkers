@@ -1,5 +1,6 @@
 package CheckerClient;
 
+import java.awt.*;
 import java.awt.event.*;
 import java.util.HashMap;
 import javax.swing.*;
@@ -15,6 +16,10 @@ public class VersaClientGUI extends JFrame {
     public HashMap chats = null;
     private String name;
     DefaultListModel userListModel = null;
+
+    private void chatButtonBotActionPerformed(ActionEvent e) {
+        // TODO add your code here
+    }
 
     public VersaClientGUI() {
         userListModel = new DefaultListModel();
@@ -45,161 +50,200 @@ public class VersaClientGUI extends JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // Generated using JFormDesigner Evaluation license - Sam Xu
     private void initComponents() {
+        ipAddressField = new JTextField();
+        ipAddressLabel = new JLabel();
+        connectButton = new JButton();
+        portLabel = new JLabel();
+        portField = new JTextField();
+        connectionLabel = new JLabel();
+        disconnectButton = new JButton();
+        nameLabel = new JLabel();
+        nameField = new JTextField();
+        usersLabel = new JLabel();
+        chatButton = new JButton();
+        usersScrollPane = new JScrollPane();
+        userList = new JList();
+        chatButtonBot = new JButton();
 
-        ipAddressField = new javax.swing.JTextField();
-        ipAddressLabel = new javax.swing.JLabel();
-        connectButton = new javax.swing.JButton();
-        portLabel = new javax.swing.JLabel();
-        portField = new javax.swing.JTextField();
-        connectionLabel = new javax.swing.JLabel();
-        disconnectButton = new javax.swing.JButton();
-        nameLabel = new javax.swing.JLabel();
-        nameField = new javax.swing.JTextField();
-        usersLabel = new javax.swing.JLabel();
-        chatButton = new javax.swing.JButton();
-        usersScrollPane = new javax.swing.JScrollPane();
-        userList = new javax.swing.JList();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        //======== this ========
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setTitle("VersaCheckers");
         setResizable(false);
+        Container contentPane = getContentPane();
 
+        //---- ipAddressField ----
         ipAddressField.setText("127.0.0.1");
         ipAddressField.setNextFocusableComponent(portField);
-        ipAddressField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ipAddressFieldActionPerformed(evt);
+        ipAddressField.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ipAddressFieldActionPerformed(e);
             }
         });
 
+        //---- ipAddressLabel ----
         ipAddressLabel.setText("IP Address:");
         ipAddressLabel.setFocusable(false);
 
+        //---- connectButton ----
         connectButton.setText("Connect");
-        connectButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                connectButtonActionPerformed(evt);
+        connectButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                connectButtonActionPerformed(e);
             }
         });
 
+        //---- portLabel ----
         portLabel.setText("Port:");
         portLabel.setFocusable(false);
 
+        //---- portField ----
         portField.setText("1216");
         portField.setNextFocusableComponent(nameField);
-        portField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                portFieldActionPerformed(evt);
+        portField.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                portFieldActionPerformed(e);
             }
         });
 
+        //---- connectionLabel ----
         connectionLabel.setText("Not connected");
         connectionLabel.setFocusable(false);
 
+        //---- disconnectButton ----
         disconnectButton.setText("Disconnect");
         disconnectButton.setEnabled(false);
-        disconnectButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                disconnectButtonActionPerformed(evt);
+        disconnectButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                disconnectButtonActionPerformed(e);
             }
         });
 
+        //---- nameLabel ----
         nameLabel.setText("Name:");
         nameLabel.setFocusable(false);
 
+        //---- nameField ----
         nameField.setNextFocusableComponent(connectButton);
-        nameField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nameFieldActionPerformed(evt);
+        nameField.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                nameFieldActionPerformed(e);
             }
         });
 
+        //---- usersLabel ----
         usersLabel.setText("Users:");
         usersLabel.setFocusable(false);
 
+        //---- chatButton ----
         chatButton.setText("New Game");
         chatButton.setEnabled(false);
-        chatButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chatButtonActionPerformed(evt);
+        chatButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                chatButtonActionPerformed(e);
             }
         });
 
-        userList.setModel(userListModel);
-        userList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        userList.setFocusable(false);
-        userList.setMaximumSize(new java.awt.Dimension(0, 50));
-        usersScrollPane.setViewportView(userList);
+        //======== usersScrollPane ========
+        {
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(connectionLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(usersScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(usersLabel)
-                                                        .addGroup(layout.createSequentialGroup()
-                                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                        .addComponent(ipAddressLabel)
-                                                                        .addComponent(portLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                        .addComponent(nameLabel, javax.swing.GroupLayout.Alignment.TRAILING))
-                                                                .addGap(18, 18, 18)
-                                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                                        .addComponent(ipAddressField)
-                                                                        .addComponent(portField)
-                                                                        .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                        .addGroup(layout.createSequentialGroup()
-                                                                                .addGap(36, 36, 36)
-                                                                                .addComponent(connectButton))
-                                                                        .addGroup(layout.createSequentialGroup()
-                                                                                .addGap(26, 26, 26)
-                                                                                .addComponent(disconnectButton)))))
-                                                .addContainerGap())))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(chatButton)
-                                .addGap(143, 143, 143))
-        );
-        layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addContainerGap()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(ipAddressLabel)
-                                                        .addComponent(ipAddressField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(portField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(portLabel))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(nameLabel)))
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addGap(27, 27, 27)
-                                                .addComponent(connectButton)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(disconnectButton)))
-                                .addGap(18, 18, 18)
+            //---- userList ----
+            userList.setModel(userListModel);
+            userList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+            userList.setFocusable(false);
+            userList.setMaximumSize(new Dimension(0, 50));
+            usersScrollPane.setViewportView(userList);
+        }
+
+        //---- chatButtonBot ----
+        chatButtonBot.setText("New Bot Game");
+        chatButtonBot.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                chatButtonActionPerformed(e);
+                chatButtonBotActionPerformed(e);
+            }
+        });
+
+        GroupLayout contentPaneLayout = new GroupLayout(contentPane);
+        contentPane.setLayout(contentPaneLayout);
+        contentPaneLayout.setHorizontalGroup(
+            contentPaneLayout.createParallelGroup()
+                .addGroup(contentPaneLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(contentPaneLayout.createParallelGroup()
+                        .addComponent(connectionLabel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addGroup(contentPaneLayout.createParallelGroup()
+                                .addComponent(usersScrollPane, GroupLayout.PREFERRED_SIZE, 355, GroupLayout.PREFERRED_SIZE)
                                 .addComponent(usersLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(usersScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(chatButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(connectionLabel))
+                                .addGroup(contentPaneLayout.createSequentialGroup()
+                                    .addGroup(contentPaneLayout.createParallelGroup()
+                                        .addComponent(ipAddressLabel)
+                                        .addComponent(portLabel, GroupLayout.Alignment.TRAILING)
+                                        .addComponent(nameLabel, GroupLayout.Alignment.TRAILING))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(ipAddressField)
+                                        .addComponent(portField)
+                                        .addComponent(nameField, GroupLayout.PREFERRED_SIZE, 121, GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(contentPaneLayout.createParallelGroup()
+                                        .addGroup(contentPaneLayout.createSequentialGroup()
+                                            .addGap(36, 36, 36)
+                                            .addComponent(connectButton))
+                                        .addGroup(contentPaneLayout.createSequentialGroup()
+                                            .addGap(26, 26, 26)
+                                            .addComponent(disconnectButton)))))
+                            .addContainerGap(43, Short.MAX_VALUE))))
+                .addGroup(contentPaneLayout.createSequentialGroup()
+                    .addGap(73, 73, 73)
+                    .addComponent(chatButton)
+                    .addGap(18, 18, 18)
+                    .addComponent(chatButtonBot)
+                    .addGap(0, 116, Short.MAX_VALUE))
         );
-
+        contentPaneLayout.setVerticalGroup(
+            contentPaneLayout.createParallelGroup()
+                .addGroup(contentPaneLayout.createSequentialGroup()
+                    .addGroup(contentPaneLayout.createParallelGroup()
+                        .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addContainerGap()
+                            .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                .addComponent(ipAddressLabel)
+                                .addComponent(ipAddressField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                .addComponent(portField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(portLabel))
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                .addComponent(nameField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(nameLabel)))
+                        .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addGap(27, 27, 27)
+                            .addComponent(connectButton)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(disconnectButton)))
+                    .addGap(18, 18, 18)
+                    .addComponent(usersLabel)
+                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(usersScrollPane, GroupLayout.PREFERRED_SIZE, 168, GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                        .addComponent(chatButton)
+                        .addComponent(chatButtonBot))
+                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                    .addComponent(connectionLabel))
+        );
         pack();
+        setLocationRelativeTo(getOwner());
     }// </editor-fold>//GEN-END:initComponents
 
     private void ipAddressFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ipAddressFieldActionPerformed
@@ -429,19 +473,21 @@ public class VersaClientGUI extends JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton chatButton;
-    private javax.swing.JButton connectButton;
-    private javax.swing.JLabel connectionLabel;
-    private javax.swing.JButton disconnectButton;
-    private javax.swing.JTextField ipAddressField;
-    private javax.swing.JLabel ipAddressLabel;
-    private javax.swing.JTextField nameField;
-    private javax.swing.JLabel nameLabel;
-    private javax.swing.JTextField portField;
-    private javax.swing.JLabel portLabel;
-    private javax.swing.JList userList;
-    private javax.swing.JLabel usersLabel;
-    private javax.swing.JScrollPane usersScrollPane;
+    // Generated using JFormDesigner Evaluation license - Sam Xu
+    private JTextField ipAddressField;
+    private JLabel ipAddressLabel;
+    private JButton connectButton;
+    private JLabel portLabel;
+    private JTextField portField;
+    private JLabel connectionLabel;
+    private JButton disconnectButton;
+    private JLabel nameLabel;
+    private JTextField nameField;
+    private JLabel usersLabel;
+    private JButton chatButton;
+    private JScrollPane usersScrollPane;
+    private JList userList;
+    private JButton chatButtonBot;
     // End of variables declaration//GEN-END:variables
 
     private class clientWindowListener extends WindowAdapter {

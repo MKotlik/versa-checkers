@@ -3,3 +3,5 @@ CheckerClient/.idea
 CheckrServer/.idea
 CheckerServer/.idea
 .idea
+/CheckerClient/nbproject/private/
+/CheckerClient/build/

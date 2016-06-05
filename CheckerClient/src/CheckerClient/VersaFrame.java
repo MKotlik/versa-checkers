@@ -18,14 +18,13 @@ import javax.swing.*;
  * VersaClientChat
  */
 
-public class VersaFrame extends JFrame {
-    private VersaClient client = null;
-    private VersaClientGUI gui = null;
+public class VersaFrame extends JFrame implements Runnable{
     private HashMap prevBoard = null;
     private int num_undos = 0;
     private boolean myTurn = false;
     private URL soundFile = null;
     private VersaCheckers gamePanel;
+    private VersaGame currentGame;
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -38,13 +37,14 @@ public class VersaFrame extends JFrame {
     // End of variables declaration//GEN-END:variables
 
 
-    public VersaFrame(VersaClient client, VersaClientGUI gui){
+    public VersaFrame(){
         initComponents();
         setTitle("Game with  bot");
 
-        this.client = client;
-        this.gui = gui;
         soundFile = this.getClass().getResource("audio/floop.wav");
+
+        gamePanel = new VersaCheckers();
+        currentGame = new VersaGame(gamePanel, this);
     }
 
     private void initComponents(){
@@ -295,5 +295,9 @@ public class VersaFrame extends JFrame {
         } else {
             turnLabel.setText("Bot's turn:");
         }
+    }
+
+    public void run(){
+
     }
 }

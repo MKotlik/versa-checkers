@@ -26,6 +26,7 @@ public class VersaCheckers extends JPanel{
     private String player1 = "";
     private String player2 = "";
     private String turn = "";
+    public boolean gameover = false;
 
     private int[] selected = null;
 
