@@ -18,8 +18,11 @@ public class VersaClientGUI extends JFrame {
     DefaultListModel userListModel = null;
 
     private void chatButtonBotActionPerformed(ActionEvent e) {
-        VersaFrame f = new VersaFrame();
-        f.setVisible(true);
+        //VersaFrame f = new VersaFrame();
+        //f.setVisible(true);
+        VersaCheckers checkers = new VersaCheckers();
+
+        checkers.init();
     }
 
     public VersaClientGUI() {
