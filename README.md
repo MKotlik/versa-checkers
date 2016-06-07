@@ -21,8 +21,7 @@ A local game can be started by a user through their client, and is facilitated b
 * TLS Encryption
 * Client-server model
 * Threading
-* Minimax (and/or related AI algorithms/tools)
-* Processing
+* Minimax (and/or related AI algorithms/tools) And AlphaBeta search Algorithm 
 * Material design (for GUI)
 
 ###Project Outline
@@ -31,3 +30,8 @@ A local game can be started by a user through their client, and is facilitated b
 3. Design basic client/server protocol
 4. Basic game server (multi-game, CLI, exception-safe)
 5. Client backend and GUI frontend
+
+###Tools used for the Project
+1. IntelliJ for jar file generation and project organization
+2. JFormDesigner for generating the JSwing GUI 
+3. Lots of online guides for the MinMax and AlphaBeta algorithm 
