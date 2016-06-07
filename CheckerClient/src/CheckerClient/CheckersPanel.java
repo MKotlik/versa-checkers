@@ -12,6 +12,9 @@ import java.io.IOException;
  */
 
 public class CheckersPanel extends JPanel {
+    /**
+     * The panel displays and shows the board
+     */
     private int[][] board = null;
     private int[] selected = null;
 
@@ -95,6 +98,7 @@ public class CheckersPanel extends JPanel {
         repaint();
     }
 
+    //This method is what paints the board
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);

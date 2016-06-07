@@ -2,6 +2,12 @@ package checkers;
 
 import javax.swing.event.*;
 
+/* Copyright (c) 2016, Mikhail Kotlik and Sam Xu
+ * Versa Checkers
+ * APCS Spring Final Project
+ * VersaServer
+ */
+
 public class CheckersModel {
     protected int side;
 

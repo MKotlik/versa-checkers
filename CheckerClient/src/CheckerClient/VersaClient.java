@@ -16,6 +16,10 @@ import java.io.PrintWriter;
 
 
 public class VersaClient extends Thread{
+    /**
+     * This is the thread that handles the messages sent from the server
+     * The thread will use the messages to modify the board
+     */
     private VersaClientGUI gui = null;
     private Socket clientSocket = null;
     private PrintWriter out = null;

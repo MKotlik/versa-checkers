@@ -14,27 +14,15 @@ import checkers.Checkers;
  */
 
 public class VersaClientGUI extends JFrame {
+    /**
+     *This is the actual GUI the client will open us as
+     * Handles connection and displays information regarding the client
+     * Allows the client to open up multiplayer or single player games
+     */
     private VersaClient client = null;
     public HashMap chats = null;
     private String name = "";
     DefaultListModel userListModel = null;
-
-    private void chatButtonBotActionPerformed(ActionEvent e) {
-        final String save;
-        if (name.equals("")){
-            save = "human";
-        }else{
-            save = name;
-        }
-        Thread t = new Thread(new Runnable(){
-            @Override
-            public void run(){
-                new Checkers().init(save);
-            }
-        });
-        t.start();
-
-    }
 
     public VersaClientGUI() {
         userListModel = new DefaultListModel();
@@ -53,7 +41,6 @@ public class VersaClientGUI extends JFrame {
             }
         };
         userList.addMouseListener(mouseListener);
-
 
         addWindowListener(new clientWindowListener());
     }
@@ -440,6 +427,22 @@ public class VersaClientGUI extends JFrame {
             userList.clearSelection();
         }
     }//GEN-LAST:event_chatButtonActionPerformed
+
+    private void chatButtonBotActionPerformed(ActionEvent e) {
+        final String save;
+        if (name.equals("")){
+            save = "human";
+        }else{
+            save = name;
+        }
+        Thread t = new Thread(new Runnable(){
+            @Override
+            public void run(){
+                new Checkers().init(save);
+            }
+        });
+        t.start();
+    }
 
     private void nameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFieldActionPerformed
         if (connectButton.isEnabled()) {

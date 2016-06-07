@@ -5,6 +5,12 @@ import static checkers.CheckersConstants.*;
 import java.util.*;
 
 public class Utility {
+    /**
+     * Utility code that will be usesd through the package to help evaluate
+     * Some code might be duplicated
+     *
+     */
+
     public static int otherSide(int side) {
         if (side == RED) return BLUE;
         if (side == BLUE) return RED;

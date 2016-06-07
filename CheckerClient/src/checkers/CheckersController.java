@@ -2,8 +2,16 @@ package checkers;
 
 import java.util.*;
 
-public class CheckersController
-{
+/* Copyright (c) 2016, Mikhail Kotlik and Sam Xu
+ * Versa Checkers
+ * APCS Spring Final Project
+ * VersaServer
+ */
+
+public class CheckersController {
+    /**
+     * does what its name implies, also helps controls the clock
+     */
     protected CheckersModel model;
 
     protected TurnAgent turnAgent;
@@ -20,8 +28,7 @@ public class CheckersController
         this(model, new long[] {-1, -1});
     }
 
-    public CheckersController(CheckersModel model, long[] turnLimit)
-    {
+    public CheckersController(CheckersModel model, long[] turnLimit) {
         this.model = model;
         
         /* Create the turn clock, which enforces for how long each player can
@@ -36,8 +43,7 @@ public class CheckersController
     }
 
 
-    public void loopLater(long delayTime)
-    {
+    public void loopLater(long delayTime) {
         TimerTask task = new TimerTask()
         {
             public void run() { loop(); }
@@ -45,8 +51,7 @@ public class CheckersController
         timer.schedule(task, delayTime);
     }
 
-    public synchronized void loop()
-    {
+    public synchronized void loop() {
         long sleepTime = 0;
         while (sleepTime == CONTINUE_LOOP)
         {
@@ -61,10 +66,8 @@ public class CheckersController
             loopLater(sleepTime);
     }
 
-    protected long step()
-    {
-        switch (model.getState())
-        {
+    protected long step() {
+        switch (model.getState()) {
             case ANTE:     return stepAnte();
             case READY:    return stepReady();
             case WAITING:  return stepWaiting();
@@ -75,20 +78,17 @@ public class CheckersController
     }
 
 
-    protected long stepAnte()
-    {
+    protected long stepAnte() {
         model.startGame();
         return CONTINUE_LOOP;
     }
 
-    protected long stepWaiting()
-    {
+    protected long stepWaiting() {
         int side = model.getSide();
         CheckersPlayer player = model.getPlayer(side);
 
         /* If a player has chosen a move, use it. */
-        if (turnAgent.hasMove())
-        {
+        if (turnAgent.hasMove()) {
             /* Execute the move, and continue loop */
             try {
                 model.makeMove(turnAgent.getMove());
@@ -98,14 +98,7 @@ public class CheckersController
             return CONTINUE_LOOP;
         }
 
-        /* 
-         * If the player has used up the allocalated per-turn time,
-         * forcefully obtain a move from the player and execute it. 
-         * Otherwise sleep for timeRemain milliseconds and and check 
-         * this condition again after waking up. 
-         */
-        if (turnClock[side].getState() == CountdownClock.FINISHED)
-        {
+        if (turnClock[side].getState() == CountdownClock.FINISHED) {
             /* Stop calculation and forcefully obtain a move */
             turnAgent.stopCalculate();
 
@@ -120,8 +113,7 @@ public class CheckersController
             return turnClock[side].getTimeRemain();
     }
 
-    protected long stepReady()
-    {
+    protected long stepReady() {
         int side = model.getSide();
         CheckersPlayer player = model.getPlayer(side);
 
@@ -138,8 +130,7 @@ public class CheckersController
         return CONTINUE_LOOP;
     }
 
-    public synchronized void terminateGame(String reason)
-    {
+    public synchronized void terminateGame(String reason) {
         turnAgent.stopCalculate();
 
         if (model.getState() == CheckersModel.State.READY ||

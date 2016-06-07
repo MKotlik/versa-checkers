@@ -27,6 +27,10 @@ import javax.swing.text.StyledDocument;
  */
 
 public class VersaClientChat extends JFrame{
+    /**
+     * This handles a single game instance
+     * Each chat/game instance will be stored in a hashmap in the client GUI
+     */
     private VersaClient client = null;
     private VersaClientGUI gui = null;
     private String partner = "";

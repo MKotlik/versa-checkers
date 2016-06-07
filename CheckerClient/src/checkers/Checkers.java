@@ -8,8 +8,13 @@ import java.lang.reflect.*;
  * VersaServer
  */
 
-public class Checkers 
-{
+public class Checkers {
+    /**
+     * Main constructor
+     * Game creation
+     * Ran within a seperate thread
+     */
+
     public CheckersPlayer[] cp;
     public long[] turnLimit;
     public boolean turnDelay;
@@ -18,8 +23,7 @@ public class Checkers
     public int[] bs;
     public int side;
 
-    public Checkers()
-    {
+    public Checkers() {
         cp = new CheckersPlayer[] { null, null };
         turnLimit = new long[] {3000, 3000};
         turnDelay = true;
@@ -29,8 +33,7 @@ public class Checkers
         side = Utility.INITIAL_SIDE;
     }
 
-    public static CheckersPlayer createCheckersPlayer(String className, String playerName, int side)
-    {
+    public static CheckersPlayer createCheckersPlayer(String className, String playerName, int side) {
         CheckersPlayer player;
         Class<?> aiClass;
         Constructor<?> aiConst;
@@ -70,6 +73,8 @@ public class Checkers
      *Starts and initiates the game.
      */
     public void init(String username) {
+
+        /* Handles the player creation */
         String className, playerName;
         className = "checkers.ui.HumanPlayer";
         playerName = username;
