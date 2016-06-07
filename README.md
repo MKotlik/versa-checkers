@@ -1,5 +1,5 @@
 # Versa Checkers
-by Team TBD?
+by Team Contra
 
 Graphical, multiplayer, and local-vs-AI Checkers game made in Java.
 
