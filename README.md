@@ -38,10 +38,10 @@ Single-player games are played on one client against an AI (bot).
 
 ####Player:
 1. Run the client as described above.
-2. Press the button "Play against bot".
+2. Press the button "New Bot Game".
 3. Once a game window opens, make the first move.
 4. To make a move, click a valid, moveable piece (its square will turn green) and click on the square you want to move it to. Press "Confirm Move" to submit your move, or "Undo" to undo it.
-5. You will receive a "You win" or "You lose" notification once the game ends, or if you forfeit. To forfeit, press the "Give Up" button at the top of the window.
+5. You will receive a "You win" or "You lose" notification once the game ends.
 
 ##Techincal Details
 ###State of Project
