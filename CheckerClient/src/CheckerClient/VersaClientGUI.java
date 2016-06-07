@@ -16,14 +16,20 @@ import checkers.Checkers;
 public class VersaClientGUI extends JFrame {
     private VersaClient client = null;
     public HashMap chats = null;
-    private String name;
+    private String name = "";
     DefaultListModel userListModel = null;
 
     private void chatButtonBotActionPerformed(ActionEvent e) {
+        final String save;
+        if (name.equals("")){
+            save = "human";
+        }else{
+            save = name;
+        }
         Thread t = new Thread(new Runnable(){
             @Override
             public void run(){
-                new Checkers().init();
+                new Checkers().init(save);
             }
         });
         t.start();

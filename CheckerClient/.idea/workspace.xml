@@ -27,36 +27,48 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BetterEvaluator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/checkers/ai/BetterEvaluator.java">
+      <file leaf-file-name="Checkers.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/checkers/Checkers.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="100" column="11" selection-start-line="100" selection-start-column="11" selection-end-line="100" selection-end-column="11" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CheckersConstants.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/checkers/CheckersConstants.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+            <state relative-caret-position="251">
+              <caret line="74" column="30" selection-start-line="74" selection-start-column="30" selection-end-line="74" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AlphaBetaPlayer.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/checkers/ai/AlphaBetaPlayer.java">
+      <file leaf-file-name="VersaClientGUI.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/CheckerClient/VersaClientGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="627">
-              <caret line="33" column="53" selection-start-line="33" selection-start-column="53" selection-end-line="33" selection-end-column="53" />
+            <state relative-caret-position="361">
+              <caret line="28" column="37" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#813#814#0" expanded="true" />
+                <element signature="e#1783#1872#0" expanded="true" />
+                <marker date="1465264511961" expanded="false" signature="1748:1778" ph="/unchecked/" />
+                <marker date="1465264511961" expanded="false" signature="19835:20494" ph="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CheckersModel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/checkers/CheckersModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="152">
+              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CheckersPlayer.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/checkers/CheckersPlayer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -64,18 +76,8 @@
       <file leaf-file-name="Move.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/checkers/Move.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Evaluator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/checkers/Evaluator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+            <state relative-caret-position="266">
+              <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -84,8 +86,8 @@
       <file leaf-file-name="Utility.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/checkers/Utility.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2109">
-              <caret line="410" column="47" selection-start-line="410" selection-start-column="47" selection-end-line="410" selection-end-column="47" />
+            <state relative-caret-position="2774">
+              <caret line="148" column="25" selection-start-line="148" selection-start-column="25" selection-end-line="148" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -127,16 +129,13 @@
         <option value="$PROJECT_DIR$/src/CheckerClient/Utility.java" />
         <option value="$PROJECT_DIR$/src/CheckerClient/CheckersController.java" />
         <option value="$PROJECT_DIR$/src/CheckerClient/cs540/checkers/Checkers.java" />
-        <option value="$PROJECT_DIR$/src/checkers/ui/CheckersUIController.java" />
         <option value="$PROJECT_DIR$/src/checkers/cli/CheckersCLI.java" />
         <option value="$PROJECT_DIR$/src/checkers/cli/CheckersLogger.java" />
         <option value="$PROJECT_DIR$/src/checkers/bpayne/AlphaBetaPlayer.java" />
         <option value="$PROJECT_DIR$/src/CheckerClient/VersaCheckers.java" />
-        <option value="$PROJECT_DIR$/src/CheckerClient/VersaClientGUI.java" />
         <option value="$PROJECT_DIR$/src/checkers/ui/CBSquare.java" />
         <option value="$PROJECT_DIR$/src/checkers/bpayne/BpaynePlayer.java" />
         <option value="$PROJECT_DIR$/src/checkers/bpayne/BetaAlphaPlayer.java" />
-        <option value="$PROJECT_DIR$/src/checkers/Checkers.java" />
         <option value="$PROJECT_DIR$/src/checkers/CheckersModel.java" />
         <option value="$PROJECT_DIR$/src/checkers/CheckersConsts.java" />
         <option value="$PROJECT_DIR$/src/checkers/ai/BetaAlphaPlayer.java" />
@@ -148,6 +147,9 @@
         <option value="$PROJECT_DIR$/src/checkers/ai/BetterEvaluator.java" />
         <option value="$PROJECT_DIR$/src/checkers/Move.java" />
         <option value="$PROJECT_DIR$/src/checkers/Utility.java" />
+        <option value="$PROJECT_DIR$/src/checkers/ui/CheckersUIController.java" />
+        <option value="$PROJECT_DIR$/src/checkers/Checkers.java" />
+        <option value="$PROJECT_DIR$/src/CheckerClient/VersaClientGUI.java" />
       </list>
     </option>
   </component>
@@ -367,6 +369,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="checkers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CheckerClient" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CheckerClient" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="checkers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ui" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -968,12 +992,12 @@
       <workItem from="1465251238858" duration="19000" />
       <workItem from="1465251294573" duration="10264000" />
       <workItem from="1465261648234" duration="6000" />
-      <workItem from="1465261676957" duration="1349000" />
+      <workItem from="1465261676957" duration="2961000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67733000" />
+    <option name="totallyTimeSpent" value="69345000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -985,7 +1009,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1296" height="1000" extended-state="0" />
+    <frame x="-8" y="-8" width="1296" height="1000" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -996,7 +1020,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.562212" sideWeight="0.503125" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328341" sideWeight="0.496875" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.328341" sideWeight="0.496875" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32949308" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1038,7 +1062,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/CheckerClient/MyCheckersClientGUI.form" />
     <entry file="file://$PROJECT_DIR$/src/CheckerClient/VersaClientGUI.form">
       <provider selected="true" editor-type-id="ui-designer">
         <state />
@@ -1096,7 +1119,6 @@
     <entry file="file://$PROJECT_DIR$/src/cs540.checkers/CheckersConsts.java" />
     <entry file="file://$PROJECT_DIR$/src/cs540.checkers/Checkers.java" />
     <entry file="file://$PROJECT_DIR$/src/checkers/CheckersController.java" />
-    <entry file="file://$PROJECT_DIR$/src/checkers/ui/CheckersUIController.java" />
     <entry file="file://$PROJECT_DIR$/src/checkers/bpayne/AlphaBetaPlayer.java" />
     <entry file="file://$PROJECT_DIR$/src/CheckerClient/CheckersPanel.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1128,23 +1150,6 @@
     <entry file="file://$PROJECT_DIR$/src/checkers/DefaultGameClock.java" />
     <entry file="file://$PROJECT_DIR$/src/checkers/cli/CheckersLogger.java" />
     <entry file="file://$PROJECT_DIR$/src/checkers/cli/CheckersCLI.java" />
-    <entry file="file://$PROJECT_DIR$/src/CheckerClient/VersaClientGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="13" selection-end-column="3" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#539#670#0" expanded="true" />
-            <element signature="e#669#670#0" expanded="true" />
-            <element signature="e#1639#1728#0" expanded="true" />
-            <element signature="e#19528#19678#0" expanded="true" />
-            <element signature="e#19677#19678#0" expanded="true" />
-            <marker date="1465259015198" expanded="false" signature="1604:1634" ph="/unchecked/" />
-            <marker date="1465259015198" expanded="false" signature="19691:20350" ph="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/checkers/BoardState.java" />
     <entry file="file://$PROJECT_DIR$/src/checkers/ui/CheckersBoardModel.java" />
     <entry file="file://$PROJECT_DIR$/src/checkers/ui/CBSquare.java" />
@@ -1172,18 +1177,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/checkers/CheckersModel.java">
+    <entry file="file://$PROJECT_DIR$/src/checkers/Utility.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1729">
-          <caret line="94" column="34" selection-start-line="94" selection-start-column="34" selection-end-line="94" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/checkers/Checkers.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="13" column="28" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
+        <state relative-caret-position="2774">
+          <caret line="148" column="25" selection-start-line="148" selection-start-column="25" selection-end-line="148" selection-end-column="25" />
           <folding />
         </state>
       </provider>
@@ -1196,10 +1193,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/checkers/Move.java">
+    <entry file="file://$PROJECT_DIR$/src/checkers/ui/CheckersUIController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
+        <state relative-caret-position="437">
+          <caret line="28" column="75" selection-start-line="28" selection-start-column="75" selection-end-line="28" selection-end-column="75" />
           <folding />
         </state>
       </provider>
@@ -1212,11 +1209,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/checkers/Utility.java">
+    <entry file="file://$PROJECT_DIR$/src/checkers/ai/AlphaBetaPlayer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2109">
-          <caret line="410" column="47" selection-start-line="410" selection-start-column="47" selection-end-line="410" selection-end-column="47" />
-          <folding />
+        <state relative-caret-position="327">
+          <caret line="124" column="0" selection-start-line="124" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1224,19 +1223,53 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
           <caret line="100" column="11" selection-start-line="100" selection-start-column="11" selection-end-line="100" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/checkers/Checkers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="74" column="30" selection-start-line="74" selection-start-column="30" selection-end-line="74" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CheckerClient/VersaClientGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="28" column="37" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#813#814#0" expanded="true" />
+            <element signature="e#1783#1872#0" expanded="true" />
+            <marker date="1465264511961" expanded="false" signature="1748:1778" ph="/unchecked/" />
+            <marker date="1465264511961" expanded="false" signature="19835:20494" ph="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/checkers/ai/AlphaBetaPlayer.java">
+    <entry file="file://$PROJECT_DIR$/src/checkers/CheckersModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="627">
-          <caret line="33" column="53" selection-start-line="33" selection-start-column="53" selection-end-line="33" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="152">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/checkers/Move.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/checkers/CheckersPlayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
