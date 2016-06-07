@@ -2,7 +2,7 @@ package checkers.ui;
 
 import checkers.CheckersConstants;
 import checkers.Move;
-import checkers.MutableMove;
+import checkers.MultipleMove;
 import checkers.Utility;
 
 import java.util.*;
@@ -15,7 +15,7 @@ public class CheckersBoardModel
     protected int enable;
     protected int[] bs, pbs;
     protected int[] hint;
-    protected MutableMove pmove;
+    protected MultipleMove pmove;
     protected Map<Integer, Integer> removedPieces;
 
     public CheckersBoardModel()
@@ -28,7 +28,7 @@ public class CheckersBoardModel
         this.bs = bs.clone();
         this.enable = CheckersConstants.NEITHER;
 
-        this.pmove = new MutableMove();
+        this.pmove = new MultipleMove();
         this.pbs = bs.clone();
 
         this.hint = new int[CheckersConstants.W * CheckersConstants.H];
@@ -84,12 +84,12 @@ public class CheckersBoardModel
         fireStateChanged();
     }
 
-    public MutableMove getPartialMove()
+    public MultipleMove getPartialMove()
     {
         return pmove;
     }
 
-    public void setPartialMove(MutableMove pmove)
+    public void setPartialMove(MultipleMove pmove)
     {
         this.pmove = pmove;
         updateBoardState();

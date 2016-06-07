@@ -126,7 +126,7 @@ public class Utility {
             if (bs[a] % 4 != side)
                 continue;
 
-            MutableMove pmove = new MutableMove();
+            MultipleMove pmove = new MultipleMove();
             pmove.add(a);
 
             Utility.findJumpMovesHelper(bs, pmove, moveList);
@@ -134,7 +134,7 @@ public class Utility {
         return moveList;
     }
 
-    public static void findJumpMovesHelper(int[] pbs, MutableMove pmove, List<Move> moveList) {
+    public static void findJumpMovesHelper(int[] pbs, MultipleMove pmove, List<Move> moveList) {
         int a = pmove.get(pmove.size() - 1);
         boolean canJumpAgain = false;
 

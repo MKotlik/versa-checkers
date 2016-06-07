@@ -1,6 +1,6 @@
 package checkers.ui;
 
-import checkers.MutableMove;
+import checkers.MultipleMove;
 import checkers.Utility;
 
 import java.util.*;
@@ -9,7 +9,7 @@ public class PMoveUtility
 {
     public static int INVALID = 0;
 
-    public static boolean isValidPartialMove(int[] bs, int side, MutableMove pmove)
+    public static boolean isValidPartialMove(int[] bs, int side, MultipleMove pmove)
     {
         if (pmove.size() > 0 && bs[pmove.get(0)] % 4 != side)
             return false;
@@ -42,7 +42,7 @@ public class PMoveUtility
         }
     }
 
-    public static void executePartialMove(int[] bs, MutableMove pmove)
+    public static void executePartialMove(int[] bs, MultipleMove pmove)
     {
         List<int[]> ops = Utility.convertMoveToPair(pmove);
 
