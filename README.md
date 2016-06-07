@@ -34,6 +34,9 @@ Multiplayer games are played across two clients, connecting to a local or remote
 9. You will receive a "You win" or "You lose" notification once the game ends, or if you or your opponent forfeit. To forfeit, press the "Give Up" button at the top of the window.
 
 ##Techincal Details
+###State of Project
+Functional server and client (made with Swing) for user-vs-AI and user-vs-user play are on master branch. In-development version of JavaFX based server is on servergui branch.
+
 ###Processes
 User client - consists of a Swing graphical/audio/IO front-end and a computation & networking back-end.
 
