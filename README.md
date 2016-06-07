@@ -33,10 +33,10 @@ Multiplayer games are played across two clients, connecting to a local or remote
 8. Use the chat interface on the right of the game window to chat with your oppponent.
 9. You will receive a "You win" or "You lose" notification once the game ends, or if you or your opponent forfeit. To forfeit, press the "Give Up" button at the top of the window.
 
-##Single-player Play:
+###Single-player Play:
 Single-player games are played on one client against an AI (bot).
 
-###Player:
+####Player:
 1. Run the client as described above.
 2. Press the button "Play against bot".
 3. Once a game window opens, make the first move.
