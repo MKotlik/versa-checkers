@@ -23,21 +23,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="VersaServer.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="VersaServer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/CheckerServer/VersaServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+            <state relative-caret-position="247">
+              <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ClientFinder.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ClientFinder.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/CheckerServer/ClientFinder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
+            <state relative-caret-position="151">
+              <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -680,12 +680,12 @@
       <workItem from="1465165675482" duration="4000" />
       <workItem from="1465167508902" duration="1235000" />
       <workItem from="1465259550855" duration="2125000" />
-      <workItem from="1465264535867" duration="1650000" />
+      <workItem from="1465264535867" duration="2320000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48150000" />
+    <option name="totallyTimeSpent" value="48820000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -698,7 +698,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="1000" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277405" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -1077,14 +1077,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/CheckerServer/VersaBot.java" />
-    <entry file="file://$PROJECT_DIR$/src/CheckerServer/VersaServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/CheckerServer/VersaCheckers.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
@@ -1111,8 +1103,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/CheckerServer/ClientFinder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
+        <state relative-caret-position="151">
+          <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CheckerServer/VersaServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
           <folding />
         </state>
       </provider>

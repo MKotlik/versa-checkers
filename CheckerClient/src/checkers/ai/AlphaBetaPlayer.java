@@ -6,7 +6,7 @@ import java.util.*;
 
 /*
  * This is a skeleton for an alpha beta checkers player.
- * Employees the AlphaBeta search algorithm, should be better than min-max
+ * Employees the AlphaBeta search algorithm, should be better than just min-max
  */
 
 public class AlphaBetaPlayer extends CheckersPlayer implements playerGrade
@@ -27,9 +27,9 @@ public class AlphaBetaPlayer extends CheckersPlayer implements playerGrade
 
 		Random generator = new Random();
 
-		BoardState boardState = new BoardState(bs, side);
+		Evaluate evaluate = new Evaluate(bs, side);
 		/* Get all the possible moves for this player on the provided board state */
-		List<Move> possibleMoves = boardState.getAllPossibleMoves();
+		List<Move> possibleMoves = evaluate.getAllPossibleMoves();
 
 		/* If this player has no moves, return out */
 		if (possibleMoves.size() == 0)
@@ -49,9 +49,9 @@ public class AlphaBetaPlayer extends CheckersPlayer implements playerGrade
 				/* Execute the move so we can score the board state resulting from 
 				 * the move */
 				
-				boardState.execute(move);
+				evaluate.execute(move);
 
-				int score = minValue(Integer.MIN_VALUE, Integer.MAX_VALUE, curDepth - 1, boardState);
+				int score = minValue(Integer.MIN_VALUE, Integer.MAX_VALUE, curDepth - 1, evaluate);
 
 				/* Update bestMove if score > bestScore */
 				if (score > bestScore)
@@ -66,7 +66,7 @@ public class AlphaBetaPlayer extends CheckersPlayer implements playerGrade
 				}
 
 				/* Revert the move so we can score additional board states. */
-				boardState.revert();
+				evaluate.revert();
 			}
 
 			setMove(bestMove);
@@ -76,7 +76,7 @@ public class AlphaBetaPlayer extends CheckersPlayer implements playerGrade
 
 
 
-	private int maxValue(int alpha, int beta, int depth, BoardState bs){
+	private int maxValue(int alpha, int beta, int depth, Evaluate bs){
 
 		int maxSide = side;
 
@@ -111,7 +111,7 @@ public class AlphaBetaPlayer extends CheckersPlayer implements playerGrade
 	}
 
 
-	private int minValue(int alpha, int beta, int depth, BoardState bs){
+	private int minValue(int alpha, int beta, int depth, Evaluate bs){
 
 		List<Move> possibleMoves = bs.getAllPossibleMoves();
 
