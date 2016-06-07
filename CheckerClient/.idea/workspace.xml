@@ -67,26 +67,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MoveEvent.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/checkers/ui/MoveEvent.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MoveListener.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/checkers/ui/MoveListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="4" column="52" selection-start-line="4" selection-start-column="52" selection-end-line="4" selection-end-column="52" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="CheckerPanel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/checkers/ui/CheckerPanel.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -117,11 +97,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameEvent.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GameEvent.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/checkers/GameEvent.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="209">
               <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InvalidMoveException.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/checkers/InvalidMoveException.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="57">
+              <caret line="3" column="43" selection-start-line="3" selection-start-column="43" selection-end-line="3" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StringFormatException.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/checkers/StringFormatException.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="57">
+              <caret line="3" column="33" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -147,8 +147,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$USER_HOME$/Desktop/Checkers CLient/MyCheckersClientGUI.form" />
-        <option value="$PROJECT_DIR$/src/CheckerClient/CheckerPanel.java" />
         <option value="$PROJECT_DIR$/src/CheckerClient/CheckersPanel.java" />
         <option value="$PROJECT_DIR$/src/CheckerClient/VersaClientChat.java" />
         <option value="$PROJECT_DIR$/src/CheckerClient/VersaBot.java" />
@@ -197,6 +195,9 @@
         <option value="$PROJECT_DIR$/src/checkers/MultipleMove.java" />
         <option value="$PROJECT_DIR$/src/checkers/GameListener.java" />
         <option value="$PROJECT_DIR$/src/checkers/GameEvent.java" />
+        <option value="$PROJECT_DIR$/src/checkers/InvalidMoveException.java" />
+        <option value="$PROJECT_DIR$/src/checkers/FormatException.java" />
+        <option value="$PROJECT_DIR$/src/checkers/StringFormatException.java" />
       </list>
     </option>
   </component>
@@ -1039,12 +1040,12 @@
       <workItem from="1465251238858" duration="19000" />
       <workItem from="1465251294573" duration="10264000" />
       <workItem from="1465261648234" duration="6000" />
-      <workItem from="1465261676957" duration="4723000" />
+      <workItem from="1465261676957" duration="4877000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71107000" />
+    <option name="totallyTimeSpent" value="71261000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1057,7 +1058,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="1000" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32949308" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1071,7 +1072,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32949308" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20469256" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20469256" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328341" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19902913" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1109,7 +1110,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/CheckerClient/VersaFrame.java" />
     <entry file="file://$PROJECT_DIR$/src/CheckerClient/VersaGame.java" />
     <entry file="file://$PROJECT_DIR$/src/CheckerClient/VersaCheckers.java" />
     <entry file="file://$PROJECT_DIR$/src/CheckerClient/Move.java" />
@@ -1162,7 +1162,6 @@
     <entry file="file://$PROJECT_DIR$/src/CheckerClient/VersaCheckers.java" />
     <entry file="file://$PROJECT_DIR$/src/checkers/SimpleEvaluator.java" />
     <entry file="file://$PROJECT_DIR$/src/checkers/TurnAgent.java" />
-    <entry file="file://$PROJECT_DIR$/src/checkers/InvalidMoveException.java" />
     <entry file="file://$PROJECT_DIR$/src/checkers/playerGrade.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
@@ -1378,6 +1377,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/checkers/InvalidMoveException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="43" selection-start-line="3" selection-start-column="43" selection-end-line="3" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/checkers/StringFormatException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="33" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
           <folding />
         </state>
       </provider>
