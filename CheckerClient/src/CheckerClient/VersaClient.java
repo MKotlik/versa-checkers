@@ -129,7 +129,7 @@ public class VersaClient extends Thread{
             out.close();
             clientSocket.close();
         } catch(IOException e) {
-            System.err.println("Error listning to server input");
+            System.err.println("Error listening to server input");
             System.exit(1);
         }
     }
