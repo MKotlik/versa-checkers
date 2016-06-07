@@ -5,6 +5,8 @@ import java.awt.event.*;
 import java.util.HashMap;
 import javax.swing.*;
 
+import checkers.Checkers;
+
 /* Copyright (c) 2016, Mikhail Kotlik and Sam Xu
  * Versa Checkers
  * APCS Spring Final Project
@@ -18,11 +20,14 @@ public class VersaClientGUI extends JFrame {
     DefaultListModel userListModel = null;
 
     private void chatButtonBotActionPerformed(ActionEvent e) {
-        //VersaFrame f = new VersaFrame();
-        //f.setVisible(true);
-        VersaCheckers checkers = new VersaCheckers();
+        Thread t = new Thread(new Runnable(){
+            @Override
+            public void run(){
+                new Checkers().init();
+            }
+        });
+        t.start();
 
-        checkers.init();
     }
 
     public VersaClientGUI() {
