@@ -1,7 +1,10 @@
-.idea
-CheckerClient/.idea
-CheckrServer/.idea
-CheckerServer/.idea
-.idea
+.idea/misc.xml
+.idea/workspace.xml
+CheckerClient/.idea/misc.xml
+CheckerClient/.idea/workspace.xml
+CheckerServer/.idea/misc.xml
+CheckerServer/.idea/workspace.xml
+FXVersaServer/.idea/misc.xml
+FXVersaServer/.idea/workspace.xml
 /CheckerClient/nbproject/private/
 /CheckerClient/build/
